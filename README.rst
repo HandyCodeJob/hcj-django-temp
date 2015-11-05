@@ -118,11 +118,18 @@ Create a GitHub repo and push it there::
 
     $ git init
     $ git add .
-    $ git commit -m "first awesome commit"
-    $ git remote add origin git@github.com:pydanny/redditclone.git
+    $ git commit -m "init commit"
+    $ git remote add origin git@github.com:HandyCodeJob/{{cookiecutter.repo_name}}.git
     $ git push -u origin master
+    $ git flow init
+    $ git push -u origin develop
+    $ mkvirtualenv --python=/usr/bin/python3 {{cookiecutter.repo_name}}
+    $ pip install -r requirements/loacl.txt
 
 Now take a look at your repo. Don't forget to carefully look at the generated README. Awesome, right?
+
+Look at `TODO.rst` to see what else needs to be done with other providers.
+
 
 For development, see the following for local development:
 
