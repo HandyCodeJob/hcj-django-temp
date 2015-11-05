@@ -99,13 +99,14 @@ It prompts you for questions. Answer them::
     domain_name [example.com]: myreddit.com
     version [0.1.0]: 0.0.1
     timezone [UTC]:
-    now [2015/01/13]: 2015/08/30
+    now [2015/01/13]: 2015/09/30
     year [2015]:
     use_whitenoise [y]: n
     use_celery [n]: y
-    use_maildump [n]: y
+    use_maildump [n]: n
     use_sentry [n]: y
-    windows [n]:
+    windows [n]: n
+    use_python2 [n]: y
 
 
 Enter the project and take a look around::
@@ -130,6 +131,17 @@ For development, see the following for local development:
 
 .. _`Developing locally`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally.html
 .. _`Developing locally using docker`: http://cookiecutter-django.readthedocs.org/en/latest/developing-locally-docker.html
+
+Support This Project
+---------------------------
+
+This project is maintained by volunteers. Support their efforts by spreading the word about:
+
+.. image:: https://s3.amazonaws.com/tsacademy/images/tsa-logo-250x60-transparent-01.png
+   :name: Two Scoops Academy
+   :align: center
+   :alt: Two Scoops Academy
+   :target: http://www.twoscoops.academy/
 
 For Readers of Two Scoops of Django 1.8
 --------------------------------------------

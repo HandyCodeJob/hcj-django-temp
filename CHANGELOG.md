@@ -2,6 +2,131 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-11-05]
+### Changed
+- Update version of django-extensions (@luzfcb)
+
+## [2015-11-04]
+### Changed
+- Update version of Django, cookiecutter, celery, coverage, django-mailgun, django-redis, factory_boy, flake8, pytest and pytz (@luzfcb)
+- Update AngularJS version to 1.4.7 (@luzfcb)
+- Update 'now' date in cookiecutter.json (@luzfcb)
+
+## [2015-10-28]
+### Changed
+- Update deployment-on-heroku.rst for ADMIN_URL (@yunti)
+
+## [2015-10-27]
+### Added
+- Added sudo: true to the travis file (@MathijsHoogland)
+
+## [2015-10-25]
+### Added
+- Move current logging config into production.py since it's not useful locally anyway. Used only if not using Sentry. (@audreyr)
+- `setup.py` so we can list it on PyPI and therefore displayed on djangopackages.com as compatible with Python 3. (@pydanny)
+- Versioning and tagging policy (@pydanny)
+- Fixed flake8 issue (@pydanny)
+
+## [2015-10-24]
+### Changed
+- Update nav in base template to latest Bootstrap 4 version (@audreyr)
+- Replaced ADD with COPY in dockerfiles (@audreyr)
+- Simplified development dockerfile (@jayfk)
+- Moved the docker postgres volume on the development environment to it's own subfolder (@jayfk)
+- Renamed DJANGO_CACHE_URL to REDIS_URL (@jayfk / proposed by @pydanny)
+
+## [2015-10-22]
+### Removed
+- Remove unnecessary .gitkeep in static/images/ (@audreyr)
+
+## [2015-10-21]
+### Changed
+- Updated requirements (@theskumar)
+### Removed
+- editorconfig comment that was just a isort settings link (@pydanny)
+
+## [2015-10-19]
+### Changed
+- On Windows, don't install psycopg2 locally. Still install it in test/prod which are assumed to be Unix. (@audreyr)
+
+## [2015-10-15]
+### Changed
+- Made `post_gen_hook` function to change secret keys in files more generic (@pydanny)
+- Set cryptographically randomized value to `DJANGO_SECRET_KEY` in `env.example` (@pydanny)
+
+## [2015-10-14]
+### Added
+- Documention of project options (@audreyr)
+### Changed
+- Added clarification on building for local or production (@MathijsHoogland)
+- Whitespace correction in dev.yml (@MathijsHoogland)
+
+## [2015-10-13]
+### Changed
+- Requirements update (@theskumar)
+
+## [2015-10-11]
+### Changed
+- Fixed raven issue on development (#302) (@jazztpt )
+
+## [2015-10-05]
+### Changed
+- Update version of Django, Pillow, hitchselenium, psutil (@luzfcb)
+
+## [2015-10-04]
+### Changed
+- Remove stray closing tags and fix navbar margin in in base.html (@hairychris)
+- Docker docs to be functional and more understandable (@audreyr)
+
+## [2015-09-30]
+### Changed
+- Fixed Sentry logging with celery (@jayfk)
+- Added pep8 and pyflakes to requirements (@jayfk)
+- Fixed url() arguments in urls.py because String view arguments to url() is deprecated in django 1.9 (@siauPatrick)
+- Update version of cookiecutter, coverage, django-environ, django-extensions, hitchpython, hitchselenium, hitchserve, pytest, pytz, whitenoise (@luzfcb)
+- Update the usage example in README (@luzfcb)
+- Update 'now' date in cookiecutter.json (@luzfcb)
+
+## [2015-09-29]
+### Changed
+- Fix RST in Docker docs (@andor-pierdelacabeza)
+
+## [2015-09-27]
+### Added
+- Added advice on how to persist changes with boot2docker (@jayfk)
+
+###Changed
+- Removed duplicate from `CONTRIBUTORS.rst` (@jayfk)
+
+## [2015-09-26]
+### Added
+- Add .pylintrc and .pep8 (@kaidokert)
+
+### Changed
+- Move pep8 rules to setup.cfg (@audreyr)
+- Better pep8 rules for exclusion (@audreyr)
+- Document all linters (@audreyr)
+- Sass linting and improvements to alerts (@audreyr)
+
+## [2015-09-25]
+### Changed
+- django-mailgun requirement to 0.7.2 (@pydanny)
+- Remove commented-out flake8 ignore rule. (@audreyr)
+
+## [2015-09-24]
+### Changed
+- Add user-uploaded media dir to .gitignore (@audreyr)
+- Update .editorconfig to use 2 spaces for html, css, scss, json (@audreyr)
+- Have flake8 ignore node_modules dir (@audreyr)
+
+## [2015-09-23]
+### Changed
+- Add workaround for django-debug-toolbar conflict with Bootstrap 4 (@audreyr)
+
+## [2015-09-22]
+### Added
+- Add Python version option for deployment (@yunti)
+
 ## [2015-09-21]
 ### Changed
 - django-mailgun-redux to django-mailgun, because @pydanny now has commit rights

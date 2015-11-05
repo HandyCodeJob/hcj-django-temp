@@ -16,6 +16,7 @@ You can either push the 'deploy' button in your generated README.rst or run thes
     heroku addons:create heroku-redis:hobby-dev
     heroku addons:create mailgun
 
+    heroku config:set DJANGO_ADMIN_URL=`openssl rand -base64 32`
     heroku config:set DJANGO_SECRET_KEY=`openssl rand -base64 32`
     heroku config:set DJANGO_SETTINGS_MODULE='config.settings.production'
     heroku config:set DJANGO_ALLOWED_HOSTS='.herokuapp.com'
@@ -30,6 +31,7 @@ You can either push the 'deploy' button in your generated README.rst or run thes
     heroku config:set DJANGO_ROLLBAR_ACCESS_TOKEN=YOUR_ROLLBAR_ACCESS_TOKEN
 
     heroku config:set PYTHONHASHSEED=random
+    heroku config:set DJANGO_ADMIN_URL=\^somelocation/ 
 
     git push heroku master
     heroku run python manage.py migrate
