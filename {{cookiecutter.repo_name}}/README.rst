@@ -4,7 +4,7 @@
 {{cookiecutter.description}}
 
 
-LICENSE: BSD
+LICENSE: GNU Lesser General Public License v3.0
 
 Settings
 ------------

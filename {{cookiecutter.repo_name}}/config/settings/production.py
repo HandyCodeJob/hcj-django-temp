@@ -273,10 +273,3 @@ LOGGING = {
 ADMIN_URL = env('DJANGO_ADMIN_URL')
 
 # Your production stuff: Below this line define 3rd party library settings
-
-# ROLLBAR CONFIG
-# ------------------------------------------------------------------------------
-ROLLBAR['branch'] = master
-ROLLBAR['enviroment'] = 'production'
-# must be last
-MIDDLEWARE_CLASSES += ('rollbar.contrib.django.middleware.RollbarNotifierMiddleware',)

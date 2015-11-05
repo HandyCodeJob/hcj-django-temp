@@ -1,0 +1,41 @@
+env:
+  global:
+      - PROJ_ROOT=$HOME/workspace/src/bitbucket.org/handycodejob/{{cookiecutter.repo_name}}/
+      - DJANGO_SETTINGS_MODULE=config.settings.production
+      - DJANGO_SECRET_KEY=SECRET_KEY
+      - DJANGO_AWS_STORAGE_BUCKET_NAME={{cookiecutter.repo_name}}-develop
+      - DATABASE_URL=postgres://postgres@localhost
+      - DJANGO_ADMIN_URL=admin
+      - AWS_DEFAULT_REGION=us-west-2
+      - DEVELOP_APP_NAME={{cookiecutter.repo_name}}-develop
+      - STAGING_APP_NAME={{cookiecutter.repo_name}}-staging
+      - PRODUCTION_APP_NAME={{cookiecutter.repo_name}}-production
+      - secure: 
+
+cache: true
+language: python
+python:
+  - "3.4"
+
+before_install:
+  -  . $HOME/.rvm/scripts/rvm && rvm use ruby-2.0.0-p598 --default && ruby --version
+  - which heroku || wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+
+install:
+  - "pip install -r requirements/testing.txt"
+  - "npm install"
+
+before_script:
+  - mkdir -p $PROJ_ROOT/shippable/testresults
+  - mkdir -p $PROJ_ROOT/shippable/codecoverage
+
+script:
+  - grunt
+  - flake8 
+  - coverage run --branch runtests.py
+  - coverage xml -o $PROJ_ROOT/shippable/codecoverage/coverage.xml
+  - mv $PROJ_ROOT/xunittest.xml $PROJ_ROOT/shippable/testresults/
+
+after_success :
+  - test -f ~/.ssh/id_rsa.heroku || ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.heroku && heroku keys:add ~/.ssh/id_rsa.heroku
+  - ./shippable-deploy.sh

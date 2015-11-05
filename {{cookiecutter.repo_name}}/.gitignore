@@ -32,7 +32,12 @@ pip-log.txt
 .coverage
 .tox
 nosetests.xml
+coverage.xml
+xunittest.xml
 htmlcov
+
+# doc building
+docs/_build/
 
 # Translations
 *.mo
@@ -42,7 +47,6 @@ htmlcov
 .idea
 
 # Vim
-
 *~
 *.swp
 *.swo

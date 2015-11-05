@@ -39,6 +39,9 @@ THIRD_PARTY_APPS = (
     'allauth',  # registration
     'allauth.account',  # registration
     'allauth.socialaccount',  # registration
+    'rest_framework',  # djnago rest
+    'rest_framework.authtoken',  # djnago rest tokens
+    'rest_framework_swagger',  # api doc
 )
 
 # Apps specific for this project go here.
