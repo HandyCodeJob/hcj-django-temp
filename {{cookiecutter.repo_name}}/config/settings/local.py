@@ -61,20 +61,9 @@ INSTALLED_APPS += ('django_extensions', )
 # ------------------------------------------------------------------------------
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 {% if cookiecutter.celery_support == "y" %}
-########## CELERY
+# ######## CELERY
 # In development, all tasks will be executed locally by blocking until the task returns
 CELERY_ALWAYS_EAGER = True
-########## END CELERY
+# ######## END CELERY
 {% endif %}
 # Your local stuff: Below this line define 3rd party library settings
-
-# ROLLBAR CONFIG WITH BRANCH GRAB
-# ------------------------------------------------------------------------------
-from subprocess import Popen, PIPE
-conn = Popen(["git", "rev-parse", "--symbolic-full-name", "--abbrev-ref", "HEAD"],stdout=PIPE)
-branch = bytes.decode(conn.stdout.read(), 'utf-8').strip()
-ROLLBAR['branch'] = branch
-ROLLBAR['enviroment'] = 'development'
-# must be last
-MIDDLEWARE_CLASSES += ('rollbar.contrib.django.middleware.RollbarNotifierMiddleware',)
-

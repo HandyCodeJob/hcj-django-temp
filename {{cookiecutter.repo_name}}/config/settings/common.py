@@ -236,12 +236,12 @@ LOGIN_URL = 'account_login'
 # SLUGLIFIER
 AUTOSLUG_SLUGIFY_FUNCTION = 'slugify.slugify'
 {% if cookiecutter.use_celery == "y" %}
-########## CELERY
+# ######## CELERY
 INSTALLED_APPS += ('{{cookiecutter.repo_name}}.taskapp.celery.CeleryConfig',)
 # if you are not using the django database broker (e.g. rabbitmq, redis, memcached), you can remove the next line.
 INSTALLED_APPS += ('kombu.transport.django',)
 BROKER_URL = env("CELERY_BROKER_URL", default='django://')
-########## END CELERY
+# ######## END CELERY
 {% endif %}
 
 # Location of root django.contrib.admin URL, use {% raw %}{% url 'admin:index' %}{% endraw %}
