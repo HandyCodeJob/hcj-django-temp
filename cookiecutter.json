@@ -11,7 +11,7 @@
     "year": "{{ cookiecutter.now[:4] }}",
     "use_whitenoise": "n",
     "use_celery": "y",
-    "use_maildump": "y",
+    "use_maildump": "n",
     "use_sentry": "y",
     "windows": "n",
     "use_python2": "n"
