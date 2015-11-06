@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# flake8: noqa
 """
 Django settings for {{cookiecutter.project_name}} project.
 
@@ -248,3 +249,35 @@ BROKER_URL = env("CELERY_BROKER_URL", default='django://')
 ADMIN_URL = r'^admin/'
 
 # Your common stuff: Below this line define 3rd party library settings
+
+
+# Testing
+# ------------------------------------------------------------------------------
+NOSE_ARGS = [
+    '--with-coverage',  # activate coverage report
+    '--with-doctest',  # activate doctest: find and run docstests
+    '--verbosity=2',   # verbose output
+    '--with-xunit',    # enable XUnit plugin
+    '--xunit-file=xunittest.xml',  # the XUnit report file
+    '--cover-xml',     # produle XML coverage info
+    '--cover-xml-file=coverage.xml',  # the coverage info file
+    '--cover-branches',  # check branch coverage
+    '--detailed-errors',
+    '--cover-inclusive',
+    '--cover-package={{cookiecutter.repo_name}}'
+]
+
+
+# DJANGO REST REST_FRAMEWORK CONFIGURATION
+# ------------------------------------------------------------------------------
+# See: http://www.django-rest-framework.org/api-guide/settings/
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGINATE_BY_PARAM': 'page_size',
+    'PAGE_SIZE': 100,
+    'MAX_PAGINATE_BY': 500,
+    }
