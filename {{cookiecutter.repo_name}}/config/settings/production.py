@@ -217,7 +217,9 @@ LOGGING = {
 SENTRY_CELERY_LOGLEVEL = env.int('DJANGO_SENTRY_LOG_LEVEL', logging.INFO)
 RAVEN_CONFIG = {
     'CELERY_LOGLEVEL': env.int('DJANGO_SENTRY_LOG_LEVEL', logging.INFO),
-    'DSN': SENTRY_DSN
+    'celery_loglevel': env.int('DJANGO_SENTRY_LOG_LEVEL', logging.INFO),
+    'DSN': SENTRY_DSN,
+    'dsn': SENTRY_DSN,
 }
 {% elif cookiecutter.use_sentry == "n" %}
 # LOGGING CONFIGURATION
