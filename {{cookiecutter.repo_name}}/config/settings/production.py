@@ -90,8 +90,8 @@ AWS_SECRET_ACCESS_KEY = env('DJANGO_AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = env('DJANGO_AWS_STORAGE_BUCKET_NAME')
 AWS_AUTO_CREATE_BUCKET = True
 AWS_QUERYSTRING_AUTH = False
-AWS_S3_LOCATION = env('DJANGO_AWS_S3_LOCATION', 'us-west-2')
-AWS_S3_HOST = env('DJANGO_AWS_S3_HOST', 's3-us-west-2.amazonaws.com')
+AWS_S3_LOCATION = env('DJANGO_AWS_S3_LOCATION', default='us-west-2')
+AWS_S3_HOST = env('DJANGO_AWS_S3_HOST', default='s3-us-west-2.amazonaws.com')
 
 MEDIA_URL = 'https://s3.amazonaws.com/%s/cookiecutter-django/' % AWS_STORAGE_BUCKET_NAME
 # AWS cache settings, don't change unless you know what you're doing:
