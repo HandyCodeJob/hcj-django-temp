@@ -7,6 +7,7 @@ env:
       - DATABASE_URL=postgres://postgres@localhost
       - DJANGO_ADMIN_URL=admin
       - AWS_DEFAULT_REGION=us-west-2
+      - DJANGO_AWS_S3_LOCATION=us-west-2
       - DEVELOP_APP_NAME={{cookiecutter.repo_name}}-develop
       - STAGING_APP_NAME={{cookiecutter.repo_name}}-staging
       - PRODUCTION_APP_NAME={{cookiecutter.repo_name}}-production
