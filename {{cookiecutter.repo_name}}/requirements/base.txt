@@ -1,11 +1,17 @@
 # Bleeding edge Django
+<<<<<<< HEAD
 django==1.9
+||||||| merged common ancestors
+django==1.8.6
+=======
+django==1.8.7  # rq.filter: >=1.8,<1.9
+>>>>>>> ae0a2b82badab32190026492b95d1c4a7dd60463
 
 # Configuration
 django-environ==0.4.0
 django-secure==1.0.1
 {% if cookiecutter.use_whitenoise == 'y' -%}
-whitenoise==2.0.4
+whitenoise==2.0.6
 {%- endif %}
 
 
@@ -22,7 +28,7 @@ Pillow==3.0.0
 
 # For user registration, either via email or social
 # Well-built with regular release cycles!
-django-allauth==0.23.0
+django-allauth==0.24.1
 
 {% if cookiecutter.windows == 'y' -%}
 # On Windows, you must download/install psycopg2 manually

@@ -11,8 +11,13 @@ psycopg2==2.6.1
 
 # WSGI Handler
 # ------------------------------------------------
+{% if cookiecutter.use_python2 == 'y' -%}
 gevent==1.0.2
-gunicorn==19.3.0
+{% else %}
+# there's no python 3 support in stable, have to use the latest release candidate for gevent
+gevent==1.1rc1
+{% endif %}
+gunicorn==19.4.1
 
 # Static and Media Storage
 # ------------------------------------------------
@@ -30,4 +35,16 @@ django-mailgun==0.8.0
 # Raven is the Sentry client
 # --------------------------
 raven
+{%- endif %}
+
+{% if cookiecutter.use_newrelic == "y" -%}
+# Newrelic agent for performance monitoring
+# -----------------------------------------
+newrelic
+{%- endif %}
+
+{% if cookiecutter.use_opbeat == "y" -%}
+# Opbeat agent for performance monitoring
+# -----------------------------------------
+opbeat
 {%- endif %}

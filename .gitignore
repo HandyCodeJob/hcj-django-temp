@@ -30,3 +30,11 @@ _build
 local_settings.py
 repo_name
 my_test_project/*
+
+# Generated when running py.test for the cookiecutter-django generation tests
+.cache/
+
+# Unit test / coverage reports
+.coverage
+.tox
+.cache

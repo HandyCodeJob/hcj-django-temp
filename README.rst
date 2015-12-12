@@ -32,12 +32,20 @@ Features
 * Grunt build for compass and livereload
 * Basic e-mail configurations for sending emails via Mailgun_
 * Media storage using Amazon S3
-* Serve static files from Amazon S3 or Whitenoise_ (optional)
-* Pre configured Celery_ (optional)
-* Integration with Maildump_ for local email testing (optional)
-* Integration with Sentry_ for error logging (optional)
-* Docker support using docker-compose_ for dev and prod
+* Docker support using docker-compose_ for development and production
 * Procfile_ for deploying to Heroku
+
+Optional Integrations
+---------------------
+
+*These features can be enabled during initial project setup.*
+
+* Serve static files from Amazon S3 or Whitenoise_
+* Configuration for Celery_
+* Integration with MailHog_ for local email testing
+* Integration with Sentry_ for error logging
+* Integration with NewRelic_ for performance monitoring
+* Integration with Opbeat_ for performance monitoring
 
 .. _alpha: http://blog.getbootstrap.com/2015/08/19/bootstrap-4-alpha/
 .. _Hitch: https://github.com/hitchtest/hitchtest
@@ -51,9 +59,11 @@ Features
 .. _Mailgun: https://mailgun.com/
 .. _Whitenoise: https://whitenoise.readthedocs.org/
 .. _Celery: http://www.celeryproject.org/
-.. _Maildump: https://github.com/ThiefMaster/maildump
+.. _MailHog: https://github.com/mailhog/MailHog
 .. _Sentry: https://getsentry.com
+.. _NewRelic: https://newrelic.com
 .. _docker-compose: https://www.github.com/docker/compose
+.. _Opbeat: https://opbeat.com/
 
 
 Constraints
@@ -83,6 +93,8 @@ You'll be prompted for some questions, answer them, then it will create a Django
 
 **Warning**: After this point, change 'Daniel Greenfeld', 'pydanny', etc to your own information.
 
+**Warning**: repo_name must be a valid Python module name or you will have issues on imports.
+
 It prompts you for questions. Answer them::
 
     Cloning into 'cookiecutter-django'...
@@ -99,12 +111,14 @@ It prompts you for questions. Answer them::
     domain_name [example.com]: myreddit.com
     version [0.1.0]: 0.0.1
     timezone [UTC]:
-    now [2015/01/13]: 2015/09/30
+    now [2015/11/22]: 2015/11/22
     year [2015]:
     use_whitenoise [y]: n
     use_celery [n]: y
-    use_maildump [n]: n
+    use_mailhog [n]: n
     use_sentry [n]: y
+    use_newrelic [n]: y
+    use_opbeat [n]: y
     windows [n]: n
     use_python2 [n]: y
 

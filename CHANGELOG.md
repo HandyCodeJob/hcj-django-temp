@@ -2,9 +2,118 @@
 All enhancements and patches to cookiecutter-django will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2015-12-11]
+### Changed
+- Fixed issue #436 - cookiecutter variable name was renamed from `celery_support` to `use_celery` in `tests/engine.py` (@luzfcb @otakucode)
+- Updated Heroku runtime.txt for python 3.5.1 (@yunti)
+
+## [2015-12-06]
+### Changed
+- Reorganization of contributors (@burhan)
+
+## [2015-12-01]
+### Changed
+- Update documentation to include the installation os dependencies before development requirements (@failsafe86)
+
+## [2015-11-29]
+### Changed
+- Update version of click and python-build (@luzfcb)
+
+## [2015-11-25]
+### Changed
+- Update version of psutil, ipython (@luzfcb)
+- Update version of gunicorn (@audreyr)
+- Remove debugging tools from non-generated part of cookiecutter-django, since those are personal prefs (@audreyr)
+- Update version of Django in setup.py (@luzfcb)
+
+## [2015-11-24]
+### Changed
+- Update version of Django, coverage and click (@luzfcb)
+- Fixed configuration for Celery in local.py. (@luzfcb @hackebrot)
+
+## [2015-11-23]
+### Changed
+- Update AngularJS version to 1.4.8 (@luzfcb)
+- Update version of cookiecutter, pytest, tox, whitenoise, django-test-plus, django_coverage_plugin, Werkzeug, hitchserve, tornado, unixpackage (@luzfcb)
+- Update 'now' date in cookiecutter.json (@luzfcb)
+- `sh` package version pinned to `1.11` (@luzfcb)
+
+## [2015-11-22]
+### Changed
+- Move div class unquote outside the django if tag (@jvanbrug)
+- Changed gevent to `1.1rc1` for python 3 users (@jondelmil / @jayfk)
+
+## [2015-11-20]
+### Changed
+- Using python 3.5 on Heroku/Travis (@bogdal)
+- Fixed typo in README (@tedmiston)
+
+## [2015-11-18]
+### Added
+- Mailhog as a replacement for Maildump (@keybits )
+
+### Removed
+- Maildump because it didn't support Python 3 (@keybits)
+
+## [2015-11-17]
+### Added
+- initial configuration to support opbeat (@burhan)
+
+### Removed
+- Took *.pyc out of .gitignore, because it's already covered by *.py[cod] (@audreyr)
+
+## [2015-11-16]
+### Changed
+- Cleanup of main README (@burhan)
+
+## [2015-11-15]
+### Added
+- Added `UserFactory` for users.User tests (@ad-m)
+
+## [2015-11-12]
+### Changed
+- Update version of django-allauth (@yunti)
+- Added a warning in README.rst: ```repo_name must be a valid Python module``` @cdvv7788
+
+### Removed
+- remove ```{% load url from future %}``` in templates - deprecated in django 1.9 (@yunti)
+
+## [2015-11-11]
+### Added
+- Added django_coverage_plugin to measure Django template coverage (@audreyr)
+
+## [2015-11-09]
+### Changed
+- Now using py.test for our test suite!! (@hackebrot)
+- Python version in travis.yml is now correct for the selected version of Django (@show0k)
+
+## [2015-11-08]
+### Changed
+- bump django-extensions version (@garrypolley)
+
+## [2015-11-07]
+### Added
+- newrelic support (@amjith)
+- DJANGO_SENTRY_DSN to env.example (@jayfk)
+
+### Changed
+- Made `post_gen_hook.set_secret_key()` only changes one CHANGEME!!! at a time. (@pydanny)
+- Fixed an error where celery couldn't load the sentry DSN from settings (@jayfk)
+- Renamed ADMIN_URL to DJANGO_ADMIN_URL in env.example (@ChrisPappalardo)
+
+## [2015-11-06]
+### Added
+- \*tests\* to `.coveragerc`, because including it is cheating! (@pydanny)
+- Binaryornot to cookiecutter-django's own tests because otherwise Python 3 blows up (@audreyr)
+
+### Changed
+- `.travis.yml` configuration to support Python 3.4 and 3.5 (@pydanny)
+- `.gitignore` configuration so py.test cache files don't show up in git status.
+
 ## [2015-11-05]
 ### Changed
 - Update version of django-extensions (@luzfcb)
+- Fix gevent requirement for Python 3 (@mcho421)
 
 ## [2015-11-04]
 ### Changed

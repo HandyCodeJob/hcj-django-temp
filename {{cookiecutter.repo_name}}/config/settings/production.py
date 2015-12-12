@@ -11,6 +11,9 @@ Production Configurations
 - Use sentry for error logging
 - Use Rollbar for performance management
 {% endif %}
+{% if cookiecutter.use_opbeat == "y" %}
+- Use opbeat for error reporting
+{% endif %}
 '''
 from __future__ import absolute_import, unicode_literals
 
@@ -53,7 +56,19 @@ MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + \
 MIDDLEWARE_CLASSES = SECURITY_MIDDLEWARE + MIDDLEWARE_CLASSES
 
 {%- endif %}
-
+{% if cookiecutter.use_opbeat == "y" -%}
+# opbeat integration
+# See https://opbeat.com/languages/django/
+INSTALLED_APPS += ('opbeat.contrib.django',)
+OPBEAT = {
+    'ORGANIZATION_ID': env('DJANGO_OPBEAT_ORGANIZATION_ID'),
+    'APP_ID': env('DJANGO_OPBEAT_APP_ID'),
+    'SECRET_TOKEN': env('DJANGO_OPBEAT_SECRET_TOKEN')
+}
+MIDDLEWARE_CLASSES = (
+    'opbeat.contrib.django.middleware.OpbeatAPMMiddleware',
+) + MIDDLEWARE_CLASSES
+{%- endif %}
 # set this to 60 seconds and then to 518400 when you can prove it works
 SECURE_HSTS_SECONDS = 60
 SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
@@ -133,6 +148,10 @@ MAILGUN_ACCESS_KEY = env('DJANGO_MAILGUN_API_KEY')
 MAILGUN_SERVER_NAME = env('DJANGO_MAILGUN_SERVER_NAME')
 EMAIL_SUBJECT_PREFIX = env("DJANGO_EMAIL_SUBJECT_PREFIX", default='[{{cookiecutter.project_name}}] ')
 SERVER_EMAIL = env('DJANGO_SERVER_EMAIL', default=DEFAULT_FROM_EMAIL)
+{% if cookiecutter.use_newrelic == 'y'-%}
+NEW_RELIC_LICENSE_KEY = env('NEW_RELIC_LICENSE_KEY')
+NEW_RELIC_APP_NAME = '{{cookiecutter.project_name}}'
+{%- endif %}
 
 # TEMPLATE CONFIGURATION
 # ------------------------------------------------------------------------------
